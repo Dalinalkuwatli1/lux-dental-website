@@ -39,33 +39,33 @@ export const PremiumImage: React.FC<PremiumImageProps> = ({
 
   const getFallbackIcon = () => {
     if (type === 'doctor') {
-      if (slug.includes('smith'))  return <UserCheck className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
-      if (slug.includes('lee'))    return <ShieldCheck className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
-      if (slug.includes('garcia')) return <Sparkles   className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
-      if (slug.includes('yousef')) return <Heart      className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
+      if (slug.includes('smith')) return <UserCheck className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
+      if (slug.includes('lee')) return <ShieldCheck className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
+      if (slug.includes('garcia')) return <Sparkles className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
+      if (slug.includes('yousef')) return <Heart className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
       return <Users className="w-7 h-7 text-primary-muted dark:text-[#e2c792]" />;
     }
     switch (slug) {
-      case 'cleaning':   return <Smile      className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
-      case 'whitening':  return <Sparkles   className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
-      case 'implants':   return <ShieldCheck className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
-      case 'braces':     return <Activity   className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
-      case 'root-canal': return <Heart      className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
-      case 'cosmetic':   return <Award      className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
-      default:           return <Smile      className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      case 'cleaning': return <Smile className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      case 'whitening': return <Sparkles className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      case 'implants': return <ShieldCheck className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      case 'braces': return <Activity className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      case 'root-canal': return <Heart className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      case 'cosmetic': return <Award className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
+      default: return <Smile className="w-7 h-7 text-primary dark:text-[#00f2fe]" />;
     }
   };
 
   const getFallbackGradient = () => {
     if (type === 'doctor') return 'linear-gradient(135deg, rgba(16,185,129,0.08), rgba(20,184,166,0.04))';
     switch (slug) {
-      case 'cleaning':   return 'linear-gradient(135deg, rgba(20,184,166,0.1), rgba(240,253,250,0.5))';
-      case 'whitening':  return 'linear-gradient(135deg, rgba(56,189,248,0.08), rgba(204,251,241,0.3))';
-      case 'implants':   return 'linear-gradient(135deg, rgba(5,150,105,0.12), rgba(20,184,166,0.04))';
-      case 'braces':     return 'linear-gradient(135deg, rgba(20,184,166,0.1), rgba(226,199,146,0.05))';
+      case 'cleaning': return 'linear-gradient(135deg, rgba(20,184,166,0.1), rgba(240,253,250,0.5))';
+      case 'whitening': return 'linear-gradient(135deg, rgba(56,189,248,0.08), rgba(204,251,241,0.3))';
+      case 'implants': return 'linear-gradient(135deg, rgba(5,150,105,0.12), rgba(20,184,166,0.04))';
+      case 'braces': return 'linear-gradient(135deg, rgba(20,184,166,0.1), rgba(226,199,146,0.05))';
       case 'root-canal': return 'linear-gradient(135deg, rgba(20,184,166,0.08), rgba(244,63,94,0.04))';
-      case 'cosmetic':   return 'linear-gradient(135deg, rgba(226,199,146,0.1), rgba(240,253,250,0.3))';
-      default:           return 'linear-gradient(135deg, rgba(240,253,250,0.5), rgba(255,255,255,0.2))';
+      case 'cosmetic': return 'linear-gradient(135deg, rgba(226,199,146,0.1), rgba(240,253,250,0.3))';
+      default: return 'linear-gradient(135deg, rgba(240,253,250,0.5), rgba(255,255,255,0.2))';
     }
   };
 

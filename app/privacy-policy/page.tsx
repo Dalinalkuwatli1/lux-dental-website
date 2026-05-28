@@ -18,21 +18,21 @@ export default function PrivacyPolicyPage() {
           {locale === 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}
         </h1>
         <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400">
-          {locale === 'en' 
+          {locale === 'en'
             ? 'Last updated: May 2026. Your privacy and the security of your medical data are of the utmost importance to Lumina Dental Clinic.'
             : 'آخر تحديث: مايو 2026. خصوصيتك وأمان بياناتك الطبية هما في غاية الأهمية بالنسبة لعيادة لومينا لطب الأسنان.'}
         </p>
       </div>
 
       <div className="space-y-12 text-neutral-600 dark:text-neutral-300 leading-relaxed font-light">
-        
+
         {/* Section 1 */}
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-charcoal dark:text-white">
             {locale === 'en' ? '1. Information We Collect' : '1. المعلومات التي نجمعها'}
           </h2>
           <p>
-            {locale === 'en' 
+            {locale === 'en'
               ? 'We collect personal and medical information necessary to provide you with exceptional biological dental care. This includes, but is not limited to, your name, contact details, comprehensive medical history, dental records, and payment information.'
               : 'نقوم بجمع المعلومات الشخصية والطبية اللازمة لتزويدك برعاية أسنان بيولوجية استثنائية. يشمل ذلك، على سبيل المثال لا الحصر، اسمك، وتفاصيل الاتصال، والتاريخ الطبي الشامل، وسجلات الأسنان، ومعلومات الدفع.'}
           </p>

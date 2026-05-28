@@ -18,21 +18,21 @@ export default function TermsOfServicePage() {
           {locale === 'en' ? 'Terms of Service' : 'شروط الخدمة'}
         </h1>
         <p className="text-sm sm:text-base text-neutral-500 dark:text-neutral-400">
-          {locale === 'en' 
+          {locale === 'en'
             ? 'Last updated: May 2026. Please read these terms carefully before using our clinical services.'
             : 'آخر تحديث: مايو 2026. يرجى قراءة هذه الشروط بعناية قبل استخدام خدماتنا السريرية.'}
         </p>
       </div>
 
       <div className="space-y-12 text-neutral-600 dark:text-neutral-300 leading-relaxed font-light">
-        
+
         {/* Section 1 */}
         <section className="space-y-4">
           <h2 className="text-2xl font-semibold text-charcoal dark:text-white">
             {locale === 'en' ? '1. Clinical Agreements' : '1. الاتفاقيات السريرية'}
           </h2>
           <p>
-            {locale === 'en' 
+            {locale === 'en'
               ? 'By scheduling an appointment and proceeding with treatment at Lumina Dental Clinic, you agree to adhere to our clinical protocols. All treatment plans are estimates based on initial diagnostics and may be subject to change upon further clinical discovery.'
               : 'من خلال تحديد موعد والمضي قدمًا في العلاج في عيادة لومينا لطب الأسنان، فإنك توافق على الالتزام ببروتوكولاتنا السريرية. جميع خطط العلاج هي تقديرات تستند إلى التشخيص الأولي وقد تكون عرضة للتغيير عند المزيد من الاكتشاف السريري.'}
           </p>

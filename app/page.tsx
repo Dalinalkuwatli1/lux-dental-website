@@ -344,8 +344,8 @@ export default function Home() {
                     <Star
                       key={starIndex}
                       className={`w-4 h-4 ${starIndex < review.rating
-                          ? 'text-gold fill-gold'
-                          : 'text-neutral-250/20'
+                        ? 'text-gold fill-gold'
+                        : 'text-neutral-250/20'
                         }`}
                     />
                   ))}

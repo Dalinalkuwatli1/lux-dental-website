@@ -55,7 +55,7 @@ export default function ServicesPage() {
             <div className="relative aspect-[16/10] overflow-hidden w-full bg-neutral-100 dark:bg-neutral-800">
               <PremiumImage
                 src={service.image}
-                alt={service.title}
+                alt={service.title[locale as keyof typeof service.title]}
                 type="service"
                 slug={service.slug}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -47,7 +47,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       setAvailableSlots([]);
       return;
     }
-    
+
     const selectedDoc = doctors.find((d) => d.slug === doctor);
     if (!selectedDoc) return;
 
@@ -55,7 +55,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
     // Note: JS Date constructor can parse YYYY-MM-DD
     const parsedDate = new Date(date + 'T00:00:00');
     const dayName = parsedDate.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
-    
+
     const slots = selectedDoc.schedule[dayName] || [];
     setAvailableSlots(slots);
     setTimeSlot(''); // Reset time when date changes
@@ -71,11 +71,13 @@ export const BookingForm: React.FC<BookingFormProps> = ({
       implants: 'Implant Dentistry',
       cosmetic: 'Cosmetic Dentistry',
       whitening: 'Cosmetic Dentistry',
+      cleaning: 'Cosmetic Dentistry',
+      'root-canal': 'Endodontics',
     };
 
     const targetSpecialty = specialtyMap[service];
     if (targetSpecialty) {
-      const matchedDoc = doctors.find((d) => d.specialization === targetSpecialty);
+      const matchedDoc = doctors.find((d) => d.specialization.en === targetSpecialty);
       if (matchedDoc) {
         setDoctor(matchedDoc.slug);
       }
@@ -121,8 +123,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           {locale === 'en' ? 'Appointment Requested' : 'تم طلب الموعد'}
         </h3>
         <p className="text-sm text-neutral-500 dark:text-neutral-400 max-w-sm mx-auto mb-8">
-          {locale === 'en' ? 
-            'We have reserved your slot. A boutique health concierge will call you shortly to confirm your clinical details.' : 
+          {locale === 'en' ?
+            'We have reserved your slot. A boutique health concierge will call you shortly to confirm your clinical details.' :
             'لقد حجزنا موعدك. سيتصل بك فريقنا الطبي قريباً لتأكيد التفاصيل السريرية.'}
         </p>
 
@@ -131,7 +133,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           {/* Ticket Edge punch holes effect */}
           <div className="absolute top-1/2 -left-3 w-6 h-6 rounded-full bg-white dark:bg-[#081110] border-r border-neutral-200/60 dark:border-neutral-800 -translate-y-1/2" />
           <div className="absolute top-1/2 -right-3 w-6 h-6 rounded-full bg-white dark:bg-[#081110] border-l border-neutral-200/60 dark:border-neutral-800 -translate-y-1/2" />
-          
+
           <div className="flex items-center justify-between pb-4 border-b border-dashed border-neutral-200 dark:border-neutral-800">
             <div>
               <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-widest block">{locale === 'en' ? 'Reference Code' : 'رمز المرجع'}</span>
@@ -151,17 +153,23 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               </div>
               <div>
                 <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-widest block">{locale === 'en' ? 'Treatment' : 'العلاج'}</span>
-                <span className="font-medium text-charcoal dark:text-white">{selectedServiceObj?.title}</span>
+                <span className="font-medium text-charcoal dark:text-white">
+                  {selectedServiceObj?.title ? selectedServiceObj.title[locale as keyof typeof selectedServiceObj.title] : ''}
+                </span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-widest block">{locale === 'en' ? 'Specialist' : 'الأخصائي'}</span>
-                <span className="font-medium text-charcoal dark:text-white">{selectedDoctorObj?.name}</span>
+                <span className="font-medium text-charcoal dark:text-white">
+                  {selectedDoctorObj?.name ? selectedDoctorObj.name[locale as keyof typeof selectedDoctorObj.name] : ''}
+                </span>
               </div>
               <div>
                 <span className="text-[10px] font-semibold text-neutral-400 uppercase tracking-widest block">{locale === 'en' ? 'Specialty' : 'التخصص'}</span>
-                <span className="font-medium text-gold">{selectedDoctorObj?.specialization}</span>
+                <span className="font-medium text-gold">
+                  {selectedDoctorObj?.specialization ? selectedDoctorObj.specialization[locale as keyof typeof selectedDoctorObj.specialization] : ''}
+                </span>
               </div>
             </div>
             <div className="grid grid-cols-2 gap-4 pt-3 border-t border-neutral-100 dark:border-neutral-800">
@@ -184,8 +192,8 @@ export const BookingForm: React.FC<BookingFormProps> = ({
         </div>
 
         <div className="flex justify-center gap-3">
-          <Button 
-            variant="outline" 
+          <Button
+            variant="outline"
             onClick={() => {
               setIsSubmitted(false);
               setService('');
@@ -212,27 +220,25 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 animate-fade-in">
-      
+
       {/* Progress Indicator */}
       <div className="flex items-center justify-between px-2 mb-6">
         <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider">
-          <span className={`w-6 h-6 rounded-full flex items-center justify-center border text-[10px] ${
-            currentStep >= 1 ? 'bg-primary dark:bg-[#0b8793] text-white border-primary dark:border-[#0b8793]' : 'text-neutral-400 border-neutral-200 dark:border-neutral-700'
-          }`}>1</span>
+          <span className={`w-6 h-6 rounded-full flex items-center justify-center border text-[10px] ${currentStep >= 1 ? 'bg-primary dark:bg-[#0b8793] text-white border-primary dark:border-[#0b8793]' : 'text-neutral-400 border-neutral-200 dark:border-neutral-700'
+            }`}>1</span>
           <span className={currentStep >= 1 ? 'text-primary dark:text-[#00f2fe]' : 'text-neutral-400'}>{locale === 'en' ? 'Care & Specialist' : 'الرعاية والأخصائي'}</span>
         </div>
         <div className="w-8 h-[1px] bg-neutral-200 dark:bg-neutral-800" />
         <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider">
-          <span className={`w-6 h-6 rounded-full flex items-center justify-center border text-[10px] ${
-            currentStep >= 2 ? 'bg-primary dark:bg-[#0b8793] text-white border-primary dark:border-[#0b8793]' : 'text-neutral-400 border-neutral-200 dark:border-neutral-700'
-          }`}>2</span>
+          <span className={`w-6 h-6 rounded-full flex items-center justify-center border text-[10px] ${currentStep >= 2 ? 'bg-primary dark:bg-[#0b8793] text-white border-primary dark:border-[#0b8793]' : 'text-neutral-400 border-neutral-200 dark:border-neutral-700'
+            }`}>2</span>
           <span className={currentStep >= 2 ? 'text-primary dark:text-[#00f2fe]' : 'text-neutral-400'}>{locale === 'en' ? 'Schedule & Contact' : 'الجدول والاتصال'}</span>
         </div>
       </div>
 
       {currentStep === 1 && (
         <div className="space-y-5 animate-fade-in">
-          
+
           {/* Service Selector */}
           <div className="space-y-2">
             <label className="text-xs font-semibold tracking-wider text-charcoal dark:text-white uppercase flex items-center gap-1.5">
@@ -252,7 +258,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               <option value="">{locale === 'en' ? '-- Choose Dental Treatment --' : '-- اختر علاج الأسنان --'}</option>
               {services.map((s) => (
                 <option key={s.slug} value={s.slug}>
-                  {s.title}
+                  {s.title[locale as keyof typeof s.title]}
                 </option>
               ))}
             </select>
@@ -273,7 +279,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
               <option value="">{locale === 'en' ? '-- Select Specialist --' : '-- اختر الأخصائي --'}</option>
               {doctors.map((d) => (
                 <option key={d.slug} value={d.slug}>
-                  {d.name} ({d.specialization})
+                  {d.name[locale as keyof typeof d.name]} ({d.specialization[locale as keyof typeof d.specialization]})
                 </option>
               ))}
             </select>
@@ -300,7 +306,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
 
       {currentStep === 2 && (
         <div className="space-y-5 animate-fade-in">
-          
+
           {/* Date Picker */}
           <div className="space-y-2">
             <label className="text-xs font-semibold tracking-wider text-charcoal dark:text-white uppercase flex items-center gap-1.5">
@@ -332,7 +338,7 @@ export const BookingForm: React.FC<BookingFormProps> = ({
           {timeSlot && (
             <div className="space-y-4 pt-4 border-t border-neutral-100 dark:border-neutral-800 animate-fade-in">
               <span className="text-xs font-bold text-neutral-400 uppercase tracking-widest block">{locale === 'en' ? 'Patient Contact Details' : 'تفاصيل اتصال المريض'}</span>
-              
+
               <div className="space-y-2">
                 <input
                   type="text"

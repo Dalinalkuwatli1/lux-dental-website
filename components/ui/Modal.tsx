@@ -35,14 +35,14 @@ export const Modal: React.FC<ModalProps> = ({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
-      <div 
+      <div
         className="fixed inset-0 bg-neutral-900/40 backdrop-blur-sm transition-opacity duration-300 animate-fade-in"
         onClick={onClose}
       />
 
       {/* Modal Container */}
       <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-premium border border-neutral-100/50 overflow-hidden transform transition-all duration-300 animate-slide-up z-10">
-        
+
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-neutral-100">
           {title ? (
@@ -52,7 +52,7 @@ export const Modal: React.FC<ModalProps> = ({
           ) : (
             <div />
           )}
-          <button 
+          <button
             onClick={onClose}
             className="p-1.5 rounded-full text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 transition-colors cursor-pointer"
             aria-label="Close dialog"

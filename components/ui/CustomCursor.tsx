@@ -73,17 +73,17 @@ export default function CustomCursor() {
         }}
         transition={{ type: 'tween', ease: 'backOut', duration: 0.1 }}
       />
-      
+
       {/* Outer glowing ring (magnetic follower) */}
       <motion.div
         className="fixed top-0 left-0 rounded-full pointer-events-none z-[9998] border"
         style={{
           borderColor: isDark ? 'rgba(0, 242, 254, 0.4)' : 'rgba(13, 92, 86, 0.4)',
-          background: isHovering 
-            ? (isDark ? 'rgba(0, 242, 254, 0.1)' : 'rgba(13, 92, 86, 0.1)') 
+          background: isHovering
+            ? (isDark ? 'rgba(0, 242, 254, 0.1)' : 'rgba(13, 92, 86, 0.1)')
             : 'transparent',
-          boxShadow: isHovering 
-            ? (isDark ? '0 0 20px rgba(0, 242, 254, 0.3)' : '0 0 20px rgba(13, 92, 86, 0.3)') 
+          boxShadow: isHovering
+            ? (isDark ? '0 0 20px rgba(0, 242, 254, 0.3)' : '0 0 20px rgba(13, 92, 86, 0.3)')
             : 'none',
         }}
         animate={{

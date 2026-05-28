@@ -14,9 +14,9 @@ function BookingFormWithParams() {
   const doctorParam = searchParams.get('doctor') || '';
 
   return (
-    <BookingForm 
-      preselectedService={serviceParam} 
-      preselectedDoctor={doctorParam} 
+    <BookingForm
+      preselectedService={serviceParam}
+      preselectedDoctor={doctorParam}
     />
   );
 }
@@ -27,7 +27,7 @@ export default function BookingPage() {
 
   return (
     <div className="pt-36 pb-20 sm:pt-40 sm:pb-28 max-w-7xl mx-auto px-6 sm:px-8 animate-fade-in">
-      
+
       {/* Editorial Header */}
       <div className="text-center max-w-2xl mx-auto space-y-4 mb-16">
         <span className="text-xs font-semibold tracking-widest text-gold uppercase block">
@@ -37,14 +37,14 @@ export default function BookingPage() {
           {locale === 'en' ? 'Schedule Your Clinical Consultation' : 'احجز استشارتك السريرية'}
         </h1>
         <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-          {locale === 'en' ? 
-            'Reserve your biological consultation slot instantly. Fill in the options below, and our Beverly Hills clinical concierge will contact you to finalize medical details.' : 
+          {locale === 'en' ?
+            'Reserve your biological consultation slot instantly. Fill in the options below, and our Beverly Hills clinical concierge will contact you to finalize medical details.' :
             'احجز استشارتك البيولوجية فوراً. املأ الخيارات أدناه، وسيتصل بك فريقنا في بيفرلي هيلز لاستكمال التفاصيل الطبية.'}
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start max-w-5xl mx-auto">
-        
+
         {/* Left Column: Standalone Booking Form Container */}
         <div className="lg:col-span-7">
           <Card variant="default" hoverEffect={false} className="p-8 sm:p-10 border border-neutral-100 dark:border-neutral-800 shadow-premium dark:bg-[#081110]">
@@ -56,7 +56,7 @@ export default function BookingPage() {
 
         {/* Right Column: Support and Clinic Details */}
         <div className="lg:col-span-5 space-y-6">
-          
+
           {/* Trust Banner */}
           <Card variant="accent" hoverEffect={false} className="p-6 space-y-4">
             <h3 className="text-sm font-bold text-primary dark:text-[#00f2fe] flex items-center gap-2">

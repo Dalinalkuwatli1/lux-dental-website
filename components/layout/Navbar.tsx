@@ -41,14 +41,13 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 inset-x-0 z-40 transition-all duration-500 ${isScrolled
           ? 'bg-white/40 dark:bg-[#060b0a]/40 backdrop-blur-xl shadow-glass py-2 border-b border-white/20 dark:border-white/5'
           : 'bg-transparent py-4'
-      }`}
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 sm:px-8 flex items-center justify-between">
-        
+
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group focus:outline-none">
           <Image
@@ -74,11 +73,10 @@ export const Navbar: React.FC = () => {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm tracking-wide transition-all duration-200 relative py-1 focus:outline-none ${
-                isActive(link.href)
+              className={`text-sm tracking-wide transition-all duration-200 relative py-1 focus:outline-none ${isActive(link.href)
                   ? 'text-primary dark:text-[#00f2fe] font-semibold'
                   : 'text-neutral-600 dark:text-slate-200 hover:text-charcoal dark:hover:text-white'
-              }`}
+                }`}
             >
               {link.name}
               {isActive(link.href) && (
@@ -90,10 +88,10 @@ export const Navbar: React.FC = () => {
 
         {/* Desktop Actions */}
         <div className="hidden md:flex items-center gap-4">
-          
+
           {/* Theme Toggle */}
-          <button 
-            onClick={toggleTheme} 
+          <button
+            onClick={toggleTheme}
             className="p-1.5 rounded-full hover:bg-neutral-100/50 dark:hover:bg-neutral-800/50 transition-colors focus:outline-none text-neutral-600 dark:text-slate-200 hover:text-charcoal dark:hover:text-[#00f2fe]"
             aria-label="Toggle Dark Mode"
           >
@@ -108,17 +106,16 @@ export const Navbar: React.FC = () => {
           >
             <span className="absolute left-1.5 text-[9px] font-bold text-neutral-500 dark:text-slate-200">EN</span>
             <span className="absolute right-1.5 text-[9px] font-bold text-neutral-500 dark:text-slate-200">AR</span>
-            <div 
-              className={`w-5 h-5 bg-white dark:bg-[#00f2fe] rounded-full shadow-sm transform transition-transform duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) flex items-center justify-center ${
-                locale === 'ar' ? 'translate-x-6' : 'translate-x-0'
-              }`}
+            <div
+              className={`w-5 h-5 bg-white dark:bg-[#00f2fe] rounded-full shadow-sm transform transition-transform duration-500 cubic-bezier(0.34, 1.56, 0.64, 1) flex items-center justify-center ${locale === 'ar' ? 'translate-x-6' : 'translate-x-0'
+                }`}
             >
               <span className="text-[8px] font-bold text-primary dark:text-[#060b0a]">{locale.toUpperCase()}</span>
             </div>
           </button>
 
-          <Button 
-            variant="primary" 
+          <Button
+            variant="primary"
             size="sm"
             onClick={() => openBooking()}
           >
@@ -138,17 +135,16 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       <div
-        className={`md:hidden absolute top-full inset-x-0 bg-white dark:bg-[#060b0a] border-b border-neutral-100 dark:border-neutral-800 shadow-premium transition-all duration-350 ease-in-out ${
-          isOpen 
-            ? 'opacity-100 translate-y-0 visible' 
+        className={`md:hidden absolute top-full inset-x-0 bg-white dark:bg-[#060b0a] border-b border-neutral-100 dark:border-neutral-800 shadow-premium transition-all duration-350 ease-in-out ${isOpen
+            ? 'opacity-100 translate-y-0 visible'
             : 'opacity-0 -translate-y-4 invisible'
-        }`}
+          }`}
       >
         <div className="px-6 py-6 flex flex-col gap-4">
-          
+
           <div className="flex items-center justify-between pb-4 border-b border-neutral-100 dark:border-neutral-800">
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               className="flex items-center gap-2 text-sm font-medium text-neutral-600 dark:text-slate-200"
             >
               {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
@@ -167,9 +163,8 @@ export const Navbar: React.FC = () => {
               key={link.href}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className={`text-base font-medium tracking-wide py-2 ${
-                isActive(link.href) ? 'text-primary dark:text-[#00f2fe]' : 'text-neutral-600 dark:text-slate-200'
-              }`}
+              className={`text-base font-medium tracking-wide py-2 ${isActive(link.href) ? 'text-primary dark:text-[#00f2fe]' : 'text-neutral-600 dark:text-slate-200'
+                }`}
             >
               {link.name}
             </Link>

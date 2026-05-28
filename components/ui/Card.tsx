@@ -34,7 +34,7 @@ export const Card: React.FC<CardProps> = ({
   };
 
   const baseClasses = 'relative rounded-2xl border transition-colors duration-500 overflow-hidden';
-  
+
   // Refined for true premium agency feel (no solid flat colors)
   const variantClasses = {
     default: 'glassmorphic border-neutral-200/50 dark:border-neutral-800/50 shadow-glass',
@@ -67,7 +67,7 @@ export const Card: React.FC<CardProps> = ({
       {/* Dynamic Border Animation Layer */}
       {hoverEffect && (
         <div className="absolute inset-0 pointer-events-none rounded-2xl overflow-hidden z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div 
+          <div
             className="absolute inset-0 border-2 rounded-2xl border-transparent"
             style={{
               background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, ${glowColor || 'rgba(255,255,255,0.1)'}, transparent 40%) border-box`,

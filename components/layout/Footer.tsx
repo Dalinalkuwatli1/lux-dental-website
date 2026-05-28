@@ -31,7 +31,7 @@ const WhatsAppIcon = () => (
 
 const TikTokIcon = () => (
   <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.62 4.19 1.1 1.25 2.58 2.08 4.18 2.37v3.98c-1.89-.01-3.72-.67-5.23-1.84-.04 2.87.02 5.75-.02 8.62-.07 1.83-.67 3.69-1.9 5.02-1.52 1.73-3.87 2.63-6.14 2.49-2.31-.07-4.6-1.15-5.9-3.07-1.46-2.07-1.81-4.89-.96-7.29.83-2.45 2.92-4.39 5.48-4.99.07.01.14.02.21.02v4.06c-1.37.28-2.61 1.21-3.1 2.53-.59 1.51-.2 3.32.96 4.44 1.1 1.11 2.83 1.41 4.21.75 1.15-.52 1.89-1.7 1.95-2.96.06-2.67.02-5.34.03-8.01.01-4.22-.03-8.44.02-12.66z"/>
+    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.62 4.19 1.1 1.25 2.58 2.08 4.18 2.37v3.98c-1.89-.01-3.72-.67-5.23-1.84-.04 2.87.02 5.75-.02 8.62-.07 1.83-.67 3.69-1.9 5.02-1.52 1.73-3.87 2.63-6.14 2.49-2.31-.07-4.6-1.15-5.9-3.07-1.46-2.07-1.81-4.89-.96-7.29.83-2.45 2.92-4.39 5.48-4.99.07.01.14.02.21.02v4.06c-1.37.28-2.61 1.21-3.1 2.53-.59 1.51-.2 3.32.96 4.44 1.1 1.11 2.83 1.41 4.21.75 1.15-.52 1.89-1.7 1.95-2.96.06-2.67.02-5.34.03-8.01.01-4.22-.03-8.44.02-12.66z" />
   </svg>
 );
 
@@ -59,7 +59,7 @@ export const Footer: React.FC = () => {
   ];
 
   return (
-    <footer 
+    <footer
       className="bg-[#050b0b] text-slate-300 pt-16 pb-8 relative overflow-hidden transition-colors duration-500 border-t border-white/5"
     >
       {/* Very subtle background ambient glows */}
@@ -85,33 +85,36 @@ export const Footer: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
-        
+
         {/* Footer Top Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
+
           {/* Column 1: Brand & Bio */}
           <div className="space-y-6">
-            <Link href="/" className="flex items-center gap-2 group focus:outline-none cursor-interactive">
-              <Image
-                src="/images/tooth-logo-transparent.png"
-                alt="Lumina Dental"
-                width={40}
-                height={40}
-                className="w-10 h-10 object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-sm"
-              />
-              <div className="flex flex-col">
-                <span className="text-xs font-semibold tracking-[0.2em] text-white font-sans">
+            <Link href="/" className="flex items-center gap-3 group focus:outline-none cursor-interactive">
+              <div className="relative">
+                <div className="absolute inset-0 rounded-full bg-[#00f2fe]/10 blur-md group-hover:bg-[#00f2fe]/20 transition-all duration-500" />
+                <Image
+                  src="/images/tooth-logo-transparent.png"
+                  alt="Lumina Dental"
+                  width={52}
+                  height={52}
+                  className="relative w-13 h-13 object-contain transition-transform duration-500 group-hover:scale-110 drop-shadow-[0_0_8px_rgba(0,242,254,0.3)]"
+                />
+              </div>
+              <div className="flex flex-col gap-0.5">
+                <span className="text-sm font-bold tracking-[0.25em] text-white font-sans">
                   LUMINA
                 </span>
-                <span className="text-[7px] font-medium tracking-[0.35em] text-gold uppercase -mt-0.5">
+                <span className="text-[8px] font-semibold tracking-[0.4em] text-gold uppercase">
                   DENTAL CLINIC
                 </span>
               </div>
             </Link>
             <p className="text-[13px] text-slate-400 leading-relaxed font-light">
-              {locale === 'en' ? 
-                'Experience the pinnacle of luxury oral healthcare. We fuse world-class biological technology with boutique medical artistry.' : 
-                'اختبر قمة الرعاية الصحية للفم الفاخرة. ندمج التكنولوجيا البيولوجية العالمية مع الفن الطبي الاستثنائي.'}
+              {locale === 'en' ?
+                'Experience the pinnacle of luxury oral healthcare. We fuse world-class biological technology with boutique medical artistry.' :
+                'ارتقِ بابتسامتك في عالم طب الأسنان الفاخر؛ حيث تلتقي التكنولوجيا البيولوجية الأكثر تقدماً بالفن الطبي الاستثنائي، لنصنع من ابتسامتك تحفة فنية فريدة.'}
             </p>
 
             {/* Social Links - Clean & Bare Minimal */}
@@ -139,7 +142,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               {serviceLinks.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-[13px] text-slate-300 hover:text-[#00f2fe] transition-colors focus:outline-none font-light cursor-interactive"
                   >
@@ -158,7 +161,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-[13px] text-slate-300 hover:text-[#00f2fe] transition-colors focus:outline-none font-light cursor-interactive"
                   >
@@ -206,46 +209,39 @@ export const Footer: React.FC = () => {
 
         {/* 2. Luxury Certifications Row */}
         <div className="border-t border-white/5 py-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-[10px] tracking-[0.2em] text-slate-400 uppercase font-medium">
-          <span>HIPAA Compliant</span>
+          <span>{locale === 'en' ? 'HIPAA Compliant' : 'متوافق مع معايير HIPAA'}</span>
           <span className="text-white/10 hidden sm:inline">•</span>
-          <span>Swiss Dental Tech</span>
+          <span>{locale === 'en' ? 'Swiss Dental Tech' : 'تقنيات الأسنان السويسرية'}</span>
           <span className="text-white/10 hidden sm:inline">•</span>
-          <span>AI Assisted Diagnostics</span>
+          <span>{locale === 'en' ? 'AI Assisted Diagnostics' : 'تشخيصات مدعومة بالذكاء الاصطناعي'}</span>
           <span className="text-white/10 hidden sm:inline">•</span>
-          <span>Biological Standards</span>
+          <span>{locale === 'en' ? 'Biological Standards' : 'معايير بيولوجية صحية'}</span>
         </div>
 
-        {/* 3. Monochrome Minimal Payment Methods (Exactly like the user's reference image) */}
-        <div className="border-t border-white/5 py-5 flex flex-wrap items-center justify-center gap-4 select-none">
-          <span className="text-[11px] text-slate-400 font-light font-sans tracking-wide">
-            {locale === 'en' ? 'Accepted payments:' : 'طرق الدفع المقبولة:'}
+        {/* 3. Payment Methods — clean monochrome cards */}
+        <div className="border-t border-white/5 py-6 flex flex-wrap items-center justify-center gap-5 select-none">
+          <span className="text-[10px] text-slate-500 font-medium tracking-[0.18em] uppercase">
+            {locale === 'en' ? 'Accepted Payments' : 'طرق الدفع'}
           </span>
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-3">
             {/* Visa */}
-            <div className="w-10 h-8 rounded-md bg-white/[0.02] border border-white/[0.08] flex items-center justify-center">
-              <svg className="h-2.5 fill-current text-white/70" viewBox="0 0 24 24">
-                <path d="M16.53 16.32h2.24l1.4-8.64h-2.24zm4.84-8.64l-2.14 8.64h2.15l1.29-8.64zm-11.44 5.67l.22-1.24c.05-.28.24-.48.49-.49h1.79c.07 0 .12.05.1.12l-1.01 5.02c-.01.07-.07.12-.14.12H9.08c-.07 0-.13-.05-.14-.12l-.99-4.99c-.01-.07.03-.12.1-.12h1.69c.26 0 .46.2.5.47zM3.46 7.68h3.3c.48 0 .88.33.97.8l.68 3.5 2.14-5.1h2.46l-3.32 8.64H7.38l-1.78-6.93-.83 3.63c-.11.49-.48.86-.98.86H1l-.07-.35z"/>
-              </svg>
+            <div className="w-12 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center hover:border-white/20 transition-colors">
+              <span className="text-[11px] font-black italic tracking-tighter text-white/60">VISA</span>
             </div>
-            
             {/* Mastercard */}
-            <div className="w-10 h-8 rounded-md bg-white/[0.02] border border-white/[0.08] flex flex-col items-center justify-center gap-0.5">
-              <div className="flex items-center justify-center -space-x-1">
-                <div className="w-2.5 h-2.5 rounded-full bg-white/60" />
-                <div className="w-2.5 h-2.5 rounded-full bg-white/40" />
+            <div className="w-12 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center hover:border-white/20 transition-colors">
+              <div className="flex -space-x-1.5">
+                <div className="w-3.5 h-3.5 rounded-full bg-white/50" />
+                <div className="w-3.5 h-3.5 rounded-full bg-white/30" />
               </div>
-              <span className="text-[3.5px] tracking-wider text-white/50 font-mono uppercase leading-none">mastercard</span>
             </div>
-
-            {/* American Express */}
-            <div className="w-10 h-8 rounded-md bg-white/[0.02] border border-white/[0.08] flex flex-col items-center justify-center leading-none">
-              <span className="text-[4px] font-black tracking-tight text-white/50 uppercase leading-none">AMERICAN</span>
-              <span className="text-[4px] font-black tracking-tight text-white/50 uppercase leading-none mt-0.5">EXPRESS</span>
+            {/* Amex */}
+            <div className="w-12 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex flex-col items-center justify-center leading-none hover:border-white/20 transition-colors">
+              <span className="text-[5px] font-black tracking-tight text-white/50 uppercase">AMEX</span>
             </div>
-
             {/* PayPal */}
-            <div className="w-10 h-8 rounded-md bg-white/[0.02] border border-white/[0.08] flex items-center justify-center">
-              <span className="text-[8px] font-black italic tracking-tighter text-white/70 leading-none">PayPal</span>
+            <div className="w-12 h-8 rounded-lg bg-white/[0.04] border border-white/[0.08] flex items-center justify-center hover:border-white/20 transition-colors">
+              <span className="text-[9px] font-black italic tracking-tight text-white/60">PayPal</span>
             </div>
           </div>
         </div>
@@ -267,8 +263,8 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-6">
-            <a href="#" className="hover:text-white transition-colors cursor-interactive">{locale === 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</a>
-            <a href="#" className="hover:text-white transition-colors cursor-interactive">{locale === 'en' ? 'Terms of Service' : 'شروط الخدمة'}</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors cursor-interactive">{locale === 'en' ? 'Privacy Policy' : 'سياسة الخصوصية'}</Link>
+            <Link href="/terms-of-service" className="hover:text-white transition-colors cursor-interactive">{locale === 'en' ? 'Terms of Service' : 'شروط الخدمة'}</Link>
           </div>
         </div>
 

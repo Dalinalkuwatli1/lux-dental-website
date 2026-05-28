@@ -7,12 +7,12 @@ import { services } from '../../../data/services';
 import { useBooking } from '../../../components/booking/BookingContext';
 import { useAppContext } from '../../../context/AppContext';
 import { translations } from '../../../data/translations';
-import { 
-  ArrowLeft, 
-  CheckCircle, 
-  Clock, 
-  ShieldAlert, 
-  Activity, 
+import {
+  ArrowLeft,
+  CheckCircle,
+  Clock,
+  ShieldAlert,
+  Activity,
   Sparkles,
   HelpCircle,
   Calendar
@@ -46,30 +46,30 @@ export default function ServiceDetailPage() {
 
   return (
     <div className="pt-36 pb-20 sm:pt-40 sm:pb-28 max-w-7xl mx-auto px-6 sm:px-8 space-y-10 animate-fade-in">
-      
+
       {/* Navigation Breadcrumb */}
       <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-neutral-400 uppercase">
         <Link href="/services" className="hover:text-primary dark:hover:text-[#00f2fe] transition-colors flex items-center gap-1">
           <ArrowLeft className={`w-3.5 h-3.5 ${locale === 'ar' ? 'rotate-180' : ''}`} /> {t.nav.treatments}
         </Link>
         <span>/</span>
-        <span className="text-neutral-600 dark:text-neutral-300">{service.title}</span>
+        <span className="text-neutral-600 dark:text-neutral-300">{service.title[locale as keyof typeof service.title]}</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
+
         {/* Left Column: Extensive Details */}
         <div className="lg:col-span-8 space-y-10 text-left">
-          
+
           <div className="space-y-4">
             <span className="text-xs font-semibold tracking-widest text-gold uppercase block">
               {locale === 'en' ? 'Biological Standard' : 'المعيار البيولوجي'}
             </span>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-charcoal dark:text-white tracking-tight">
-              {service.title}
+              {service.title[locale as keyof typeof service.title]}
             </h1>
             <p className="text-base sm:text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed font-light">
-              {service.description}
+              {service.description[locale as keyof typeof service.description]}
             </p>
           </div>
 
@@ -79,14 +79,14 @@ export default function ServiceDetailPage() {
               <Activity className="w-5 h-5 text-primary dark:text-[#00f2fe]" /> {locale === 'en' ? 'The Clinical Procedure' : 'الإجراء السريري'}
             </h3>
             <p className="text-sm text-neutral-600 dark:text-white/70 leading-relaxed">
-              {service.procedure}
+              {service.procedure[locale as keyof typeof service.procedure]}
             </p>
             <div className="glassmorphic rounded-2xl p-5 text-xs text-neutral-600 dark:text-white/70 border border-neutral-200/50 dark:border-white/10">
               <span className="font-semibold text-charcoal dark:text-white uppercase block mb-1">
                 {locale === 'en' ? 'Conservative Biological Practice' : 'الممارسة البيولوجية المحافظة'}
               </span>
-              {locale === 'en' ? 
-                'We adhere strictly to biomimetic dental philosophies. We aim to preserve maximum natural enamel structure and prioritize non-toxic biological bonding systems for longevity and systemic wellness.' : 
+              {locale === 'en' ?
+                'We adhere strictly to biomimetic dental philosophies. We aim to preserve maximum natural enamel structure and prioritize non-toxic biological bonding systems for longevity and systemic wellness.' :
                 'نلتزم تمامًا بفلسفات طب الأسنان البيولوجية. نهدف إلى الحفاظ على أقصى بنية طبيعية للمينا ونعطي الأولوية لأنظمة الترابط البيولوجية غير السامة من أجل طول العمر والصحة الشاملة.'}
             </div>
           </div>
@@ -97,7 +97,7 @@ export default function ServiceDetailPage() {
               <Clock className="w-5 h-5 text-primary dark:text-[#00f2fe]" /> {locale === 'en' ? 'Post-Operative & Recovery Guidelines' : 'إرشادات ما بعد الجراحة والتعافي'}
             </h3>
             <p className="text-sm text-neutral-600 dark:text-white/70 leading-relaxed">
-              {service.recovery}
+              {service.recovery[locale as keyof typeof service.recovery]}
             </p>
             <div className="flex gap-3 p-4 bg-primary-light dark:bg-[#00f2fe]/5 border border-primary/5 dark:border-[#00f2fe]/10 rounded-2xl text-xs text-neutral-600 dark:text-white/70">
               <ShieldAlert className="w-4 h-4 text-primary dark:text-[#00f2fe] shrink-0 mt-0.5" />
@@ -114,11 +114,11 @@ export default function ServiceDetailPage() {
           <Card variant="glass" className="p-8 space-y-6">
             {/* Premium Treatment Image */}
             <div className="relative aspect-[16/10] overflow-hidden w-full bg-neutral-100 dark:bg-neutral-800 rounded-2xl mb-4">
-              <PremiumImage 
-                src={service.image} 
-                alt={service.title} 
-                type="service" 
-                slug={service.slug} 
+              <PremiumImage
+                src={service.image}
+                alt={service.title.en}
+                type="service"
+                slug={service.slug}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -136,7 +136,7 @@ export default function ServiceDetailPage() {
             <div className="space-y-3">
               <span className="text-[10px] font-bold text-neutral-400 dark:text-white/55 uppercase tracking-widest block">{t.services.benefits}</span>
               <ul className="space-y-2">
-                {service.benefits.map((benefit, idx) => (
+                {service.benefits[locale as keyof typeof service.benefits].map((benefit, idx) => (
                   <li key={idx} className="flex items-start gap-2.5 text-xs text-neutral-600 dark:text-white/70 font-medium leading-tight">
                     <CheckCircle className="w-4 h-4 text-primary dark:text-[#00f2fe] shrink-0 mt-0.5" />
                     <span>{benefit}</span>
@@ -152,12 +152,12 @@ export default function ServiceDetailPage() {
               </div>
               <div className="flex items-center justify-between text-xs">
                 <span className="text-neutral-400 dark:text-white/55 font-medium uppercase tracking-wider">{locale === 'en' ? 'Clinical Setting' : 'الإعداد السريري'}</span>
-                <span className="font-semibold text-primary dark:text-[#00f2fe]">{locale === 'en' ? 'Beverly Hills Boutique' : 'بوتيك بيفرلي هيلز'}</span>
+                <span className="font-semibold text-primary dark:text-[#00f2fe]">{locale === 'en' ? 'Beverly Hills Boutique' : 'مركز بيفرلي هيلز'}</span>
               </div>
             </div>
 
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               className="w-full justify-center group"
               onClick={() => openBooking(service.slug)}
             >

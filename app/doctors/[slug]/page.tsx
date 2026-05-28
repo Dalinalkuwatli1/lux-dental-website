@@ -7,15 +7,15 @@ import { doctors } from '../../../data/doctors';
 import { useBooking } from '../../../components/booking/BookingContext';
 import { useAppContext } from '../../../context/AppContext';
 import { translations } from '../../../data/translations';
-import { 
-  ArrowLeft, 
-  CheckCircle, 
-  Users, 
-  Calendar, 
-  Award, 
-  Clock, 
-  Briefcase, 
-  BookOpen 
+import {
+  ArrowLeft,
+  CheckCircle,
+  Users,
+  Calendar,
+  Award,
+  Clock,
+  Briefcase,
+  BookOpen
 } from 'lucide-react';
 import Button from '../../../components/ui/Button';
 import Card from '../../../components/ui/Card';
@@ -57,41 +57,41 @@ export default function DoctorDetailPage() {
 
   return (
     <div className="pt-36 pb-20 sm:pt-40 sm:pb-28 max-w-7xl mx-auto px-6 sm:px-8 space-y-10 animate-fade-in">
-      
+
       {/* Navigation Breadcrumb */}
       <div className="flex items-center gap-2 text-xs font-semibold tracking-wide text-neutral-400 uppercase">
         <Link href="/doctors" className="hover:text-primary dark:hover:text-[#00f2fe] transition-colors flex items-center gap-1">
           <ArrowLeft className={`w-3.5 h-3.5 ${locale === 'ar' ? 'rotate-180' : ''}`} /> {t.nav.specialists}
         </Link>
         <span>/</span>
-        <span className="text-neutral-600 dark:text-neutral-300">{doctor.name}</span>
+        <span className="text-neutral-600 dark:text-neutral-300">{doctor.name[locale as keyof typeof doctor.name]}</span>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-        
+
         {/* Left Column: Extensive Profile & Schedule */}
         <div className="lg:col-span-8 space-y-10 text-left">
-          
+
           {/* Avatar and Credentials */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 sm:gap-8 pb-8 border-b border-neutral-100 dark:border-neutral-800">
             <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 border border-neutral-100 dark:border-neutral-800 shadow-soft">
-              <PremiumImage 
-                src={doctor.image} 
-                alt={doctor.name} 
-                type="doctor" 
+              <PremiumImage
+                src={doctor.image}
+                alt={doctor.name.en}
+                type="doctor"
                 slug={doctor.slug}
                 className="w-full h-full object-cover"
               />
             </div>
             <div className="space-y-3 text-center sm:text-left">
               <span className="text-xs font-semibold tracking-widest text-gold uppercase block">
-                {locale === 'en' ? 'Boutique Director' : 'مدير البوتيك'}
+                {locale === 'en' ? 'Boutique Director' : 'مدير المركز'}
               </span>
               <h1 className="text-3xl sm:text-4xl font-bold text-charcoal dark:text-white tracking-tight">
-                {doctor.name}
+                {doctor.name[locale as keyof typeof doctor.name]}
               </h1>
               <span className="text-sm font-semibold text-primary dark:text-[#00f2fe] bg-primary-light dark:bg-[#00f2fe]/10 px-3 py-1 rounded-full uppercase tracking-wider inline-block">
-                {doctor.specialization} {locale === 'en' ? 'Specialist' : 'أخصائي'}
+                {doctor.specialization[locale as keyof typeof doctor.specialization]} {locale === 'en' ? 'Specialist' : 'أخصائي'}
               </span>
             </div>
           </div>
@@ -102,11 +102,11 @@ export default function DoctorDetailPage() {
               <BookOpen className="w-5 h-5 text-primary dark:text-[#00f2fe]" /> {locale === 'en' ? 'Biography & Core Philosophy' : 'السيرة الذاتية والفلسفة الأساسية'}
             </h3>
             <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              {doctor.bio}
+              {doctor.bio[locale as keyof typeof doctor.bio]}
             </p>
             <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              {locale === 'en' ? 
-                "Practicing conservative, biological dentistry means looking beyond the teeth. We evaluate systemic connections, prioritizing non-metal restorations, zero-radiation digital imaging where possible, and biocompatible materials designed to support the entire body's immunity and balance." : 
+              {locale === 'en' ?
+                "Practicing conservative, biological dentistry means looking beyond the teeth. We evaluate systemic connections, prioritizing non-metal restorations, zero-radiation digital imaging where possible, and biocompatible materials designed to support the entire body's immunity and balance." :
                 "ممارسة طب الأسنان البيولوجي المحافظ تعني النظر إلى ما هو أبعد من الأسنان. نقوم بتقييم الروابط الشاملة، مع إعطاء الأولوية للترميمات الخالية من المعادن، والتصوير الرقمي الخالي من الإشعاع، والمواد المتوافقة حيوياً."}
             </p>
           </div>
@@ -161,11 +161,11 @@ export default function DoctorDetailPage() {
               <Clock className="w-5 h-5 text-primary dark:text-[#00f2fe]" /> {locale === 'en' ? 'Weekly Schedule at a Glance' : 'لمحة عن الجدول الأسبوعي'}
             </h3>
             <p className="text-xs text-neutral-400">
-              {locale === 'en' ? 
-                'The clinical schedule below represents regular on-site consulting slots. Actual availability is updated live in the booking form.' : 
+              {locale === 'en' ?
+                'The clinical schedule below represents regular on-site consulting slots. Actual availability is updated live in the booking form.' :
                 'يمثل الجدول السريري أدناه فترات الاستشارة المنتظمة في العيادة. يتم تحديث التوافر الفعلي مباشرة في نموذج الحجز.'}
             </p>
-            
+
             <div className="border border-neutral-200/60 dark:border-neutral-800 rounded-2xl overflow-hidden shadow-soft bg-white dark:bg-[#081110]">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
@@ -227,7 +227,7 @@ export default function DoctorDetailPage() {
                   <span className="font-semibold text-charcoal dark:text-white block">
                     {locale === 'en' ? 'Direct Scheduling' : 'الجدولة المباشرة'}
                   </span>
-                  <span>{locale === 'en' ? `Reserve a slot directly with ${doctor.name}.` : `احجز موعداً مباشرة مع ${doctor.name}.`}</span>
+                  <span>{locale === 'en' ? `Reserve a slot directly with ${doctor.name.en}.` : `احجز موعداً مباشرة مع ${doctor.name.ar}.`}</span>
                 </div>
               </div>
               <div className="flex items-start gap-3 text-xs">
@@ -241,12 +241,12 @@ export default function DoctorDetailPage() {
               </div>
             </div>
 
-            <Button 
-              variant="primary" 
+            <Button
+              variant="primary"
               className="w-full justify-center group"
               onClick={() => openBooking('', doctor.slug)}
             >
-              {locale === 'en' ? 'Book with' : 'احجز مع'} {doctor.name.split(' ').slice(-1)[0]}
+              {locale === 'en' ? 'Book with' : 'احجز مع'} {doctor.name[locale as keyof typeof doctor.name].split(' ').slice(-1)[0]}
               <Calendar className={`w-4 h-4 transition-transform ${locale === 'ar' ? 'mr-2 rotate-180 group-hover:-translate-x-1' : 'ml-2 group-hover:translate-x-1'}`} />
             </Button>
           </Card>

@@ -11,9 +11,9 @@ const BookingModalContainer: React.FC = () => {
   const { isOpen, closeBooking, selectedService, selectedDoctor } = useBooking();
   return (
     <Modal isOpen={isOpen} onClose={closeBooking} title="Schedule an Appointment">
-      <BookingForm 
-        preselectedService={selectedService} 
-        preselectedDoctor={selectedDoctor} 
+      <BookingForm
+        preselectedService={selectedService}
+        preselectedDoctor={selectedDoctor}
         onSuccess={closeBooking}
       />
     </Modal>
